@@ -1,0 +1,49 @@
+homebridge:
+  name: Homebridge
+  username: CC:22:3D:E3:CE:30
+  port: 51826
+  pin: 000-00-023
+
+accessories:
+  vizioTv:
+    name: TV
+    ipAddress:
+    token:
+
+  garageDoorOpener:
+    name: Garage
+    openUrl: 
+    closeUrl: 
+    httpMethod: 
+
+platforms:
+  camera1:
+    name:
+    source:
+    stillImageSource: 
+    maxStreams: 2
+    maxWidth:
+    maxHeight:
+    maxFPS:
+    vodec:
+    debug: true
+  camera2:
+    name:
+    source:
+    stillImageSource: 
+    maxStreams: 2
+    maxWidth:
+    maxHeight:
+    maxFPS:
+    vodec:
+    debug: true
+  camera3  :
+    name:
+    source:
+    stillImageSource: 
+    maxStreams: 2
+    maxWidth:
+    maxHeight:
+    maxFPS:
+    vodec:
+    debug: true

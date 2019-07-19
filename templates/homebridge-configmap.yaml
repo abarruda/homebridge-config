@@ -1,0 +1,98 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: homebridge-config
+data:
+  config.json: |
+    {
+      "bridge": {
+        "name": "{{ .Values.homebridge.name }}",
+        "username": "{{ .Values.homebridge.username }}",
+        "port": {{ .Values.homebridge.port }},
+        "pin": "{{ .Values.homebridge.pin }}"
+      },
+      "description": "{{ .Values.homebridge.description }}",
+      "accessories": [
+        {
+          "accessory": "VizioDisplay",
+          "name": "{{ .Values.accessories.vizioTv.name }}",
+          "address": "{{ .Values.accessories.vizioTv.ipAddress }}",
+          "token": "{{ .Values.accessories.vizioTv.token }}"
+        },
+        {
+          "accessory": "GarageDoorOpener",
+          "name": "{{ .Values.accessories.garageDoorOpener.name }}",
+          "openURL": "{{ .Values.accessories.garageDoorOpener.openUrl }}",
+          "closeURL": "{{ .Values.accessories.garageDoorOpener.closeUrl }}",
+          "http_method": "{{ .Values.accessories.garageDoorOpener.httpMethod }}"
+        }
+      ],
+      "platforms": [
+        {
+          "platform": "Camera-ffmpeg",
+          "cameras": [
+            {
+              "name": "{{ .Values.platforms.camera1.name }}",
+              "videoConfig": {
+                "source": "{{ .Values.platforms.camera1.source }}",
+                "stillImageSource": "{{ .Values.platforms.camera1.stillImageSource }}",
+                "maxStreams": {{ .Values.platforms.camera1.maxStreams }},
+                "maxWidth": {{ .Values.platforms.camera1.maxWidth }},
+                "maxHeight": {{ .Values.platforms.camera1.maxHeight }},
+                "maxFPS": {{ .Values.platforms.camera1.maxFPS }},
+                "vcodec": "{{ .Values.platforms.camera1.vcodec }}",
+                "debug": {{ .Values.platforms.camera1.debug }}
+              }
+            }
+          ]
+        },
+        {
+          "platform": "Camera-ffmpeg",
+          "cameras": [
+            {
+              "name": "{{ .Values.platforms.camera2.name }}",
+              "videoConfig": {
+                "source": "{{ .Values.platforms.camera2.source }}",
+                "stillImageSource": "{{ .Values.platforms.camera2.stillImageSource }}",
+                "maxStreams": {{ .Values.platforms.camera2.maxStreams }},
+                "maxWidth": {{ .Values.platforms.camera2.maxWidth }},
+                "maxHeight": {{ .Values.platforms.camera2.maxHeight }},
+                "maxFPS": {{ .Values.platforms.camera2.maxFPS }},
+                "vcodec": "{{ .Values.platforms.camera2.vcodec }}",
+                "debug": {{ .Values.platforms.camera2.debug }}
+              }
+            }
+          ]
+        },
+        {
+          "platform": "Camera-ffmpeg",
+          "cameras": [
+            {
+              "name": "{{ .Values.platforms.camera3.name }}",
+              "videoConfig": {
+                "source": "{{ .Values.platforms.camera3.source }}",
+                "stillImageSource": "{{ .Values.platforms.camera3.stillImageSource }}",
+                "maxStreams": {{ .Values.platforms.camera3.maxStreams }},
+                "maxWidth": {{ .Values.platforms.camera3.maxWidth }},
+                "maxHeight": {{ .Values.platforms.camera3.maxHeight }},
+                "maxFPS": {{ .Values.platforms.camera3.maxFPS }},
+                "vcodec": "{{ .Values.platforms.camera3.vcodec }}",
+                "debug": {{ .Values.platforms.camera3.debug }}
+              }
+            }
+          ]
+        }
+      ]
+
+    }
+
+  package.json: |
+    {
+      "private": true,
+      "description": "This file keeps track of which plugins should be installed.",
+      "dependencies": {
+        "homebridge-camera-ffmpeg": "^0.1.12",
+        "homebridge-http-garage": "^1.2.4",
+        "homebridge-vizio": "^1.0.1"
+      }
+    }
