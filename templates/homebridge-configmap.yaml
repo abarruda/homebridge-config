@@ -43,12 +43,7 @@ data:
                 "vcodec": "{{ .Values.platforms.camera1.vcodec }}",
                 "debug": {{ .Values.platforms.camera1.debug }}
               }
-            }
-          ]
-        },
-        {
-          "platform": "Camera-ffmpeg",
-          "cameras": [
+            },
             {
               "name": "{{ .Values.platforms.camera2.name }}",
               "videoConfig": {
@@ -61,12 +56,7 @@ data:
                 "vcodec": "{{ .Values.platforms.camera2.vcodec }}",
                 "debug": {{ .Values.platforms.camera2.debug }}
               }
-            }
-          ]
-        },
-        {
-          "platform": "Camera-ffmpeg",
-          "cameras": [
+            },
             {
               "name": "{{ .Values.platforms.camera3.name }}",
               "videoConfig": {
